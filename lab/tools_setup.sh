@@ -19,3 +19,5 @@ if ($HOST =~ sbgue*.in2p3.fr) then
 endif
 
 source ${CLUSTER}.modules.europractice.${TOOLS_EUROP_VERSION}.sh
+
+echo "Tools environnement set"

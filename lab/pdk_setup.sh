@@ -35,4 +35,4 @@ if ( ! -e display.drf ) then
     cp $PDKROOT/display.drf .
 endif
 
-echo "Environnement set"
+echo "PDK environnement set"
