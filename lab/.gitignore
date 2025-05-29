@@ -1,2 +1,6 @@
 cds.lib
 display.drf
+.cdsinit
+.cdsenv
+libManager.log*
+testlib
