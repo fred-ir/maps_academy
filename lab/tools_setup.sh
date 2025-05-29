@@ -20,4 +20,13 @@ endif
 
 source ${CLUSTER}.modules.europractice.${TOOLS_EUROP_VERSION}.sh
 
+# Remove automatic setting environnement loading
+if ( ! -e .cdsinit ) then
+    touch .cdsinit
+endif
+if ( ! -e .cdsenv ) then
+    touch .cdsenv
+endif
+setenv CDS_LOAD_ENV CWD
+
 echo "Tools environnement set"
