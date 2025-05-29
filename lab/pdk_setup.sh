@@ -16,6 +16,7 @@ umask 077
 
 # Define PDK root directory
 setenv PDKROOT ../pdk/sky130_release_0.0.4
+setenv IPROOT ../pdk/sky130_scl_9T_0.0.5
 
 if ( ! -e $PDKROOT/cds.lib ) then
     echo "PDK not found"
@@ -26,7 +27,8 @@ endif
 # Test if cds.lib file exist
 # If not create it and add PDK default cds.lib
 if ( ! -e cds.lib ) then
-    echo "SOFTINCLUDE $PDKROOT/cds.lib" > cds.lib
+    echo "SOFTINCLUDE $PDKROOT/cds.lib" >> cds.lib
+    echo "DEFINE sky130_scl_9T $IPROOT/oa/sky130_scl_9T" >> cds.lib
 endif
 
 # Test if display.drf file exist
