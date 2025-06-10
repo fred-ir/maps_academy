@@ -15,8 +15,8 @@ endif
 umask 077
 
 # Define PDK root directory
-setenv PDKROOT ../pdk/sky130_release_0.0.4
-setenv IPROOT ../pdk/sky130_scl_9T_0.0.5
+setenv PDKROOT __PDKROOTDIR__/sky130_release_0.0.4
+setenv IPROOT  __PDKROOTDIR__/sky130_scl_9T_0.0.5
 
 if ( ! -e $PDKROOT/cds.lib ) then
     echo "PDK not found"
