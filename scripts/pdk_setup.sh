@@ -18,6 +18,10 @@ umask 077
 setenv PDKROOT __PDKROOTDIR__/sky130_release_0.0.4
 setenv IPROOT  __PDKROOTDIR__/sky130_scl_9T_0.0.5
 
+# Define PDK environment variables
+setenv PEGASUS_LVS $PDKROOT/Sky130_LVS
+setenv PEGASUS_DRC $PDKROOT/Sky130_DRC
+
 if ( ! -e $PDKROOT/cds.lib ) then
     echo "PDK not found"
     echo "check PDKROOT environnement or PDK installation"

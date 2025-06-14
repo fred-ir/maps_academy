@@ -1,0 +1,9 @@
+# This PVS GUI forms presets file is created automatically.
+# Do not edit it unless you 100% sure what you do!
+
+# PVS Version 24.10-p035
+
+[ virtuoso6.RunLVS ]
+RunDir                                      "./pvs_lvs"
+CreateQRCInput                              "TRUE"
+QRCDataDir                                  "svdb"
