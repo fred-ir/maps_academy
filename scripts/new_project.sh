@@ -41,7 +41,7 @@ while ($#argv > 0)
             endif
             set dir_name = "$1"
             if (! -e $dir_name) then
-                echo "Error: Directory after -d didn' exist"
+                echo "Error: Directory after -d didn't exist"
                 exit 1
             endif
             shift
@@ -61,11 +61,74 @@ if ("$project_name" == "") then
     exit 1
 endif
 
-mkdir -p $dir_name/$project_name
+# Create project directory
+if (! -e $dir_name) then
+    echo "Error: Directory '$dir_name' does not exist!"
+    exit 1
+endif
+if (! -d $dir_name) then
+    echo "Error: '$dir_name' is not a directory!"
+    exit 1
+endif
+if (-e $dir_name/$project_name) then
+    echo "Error: Project '$project_name' already exists in '$dir_name'!"
+    exit 1
+endif
+echo "[info] Creating project '$project_name' in directory '$dir_name'"
+if (! -d $dir_name) then
+    echo "Error: Directory '$dir_name' does not exist!"
+    exit 1
+endif
+if (! -d $dir_name/$project_name) then
+    mkdir -p $dir_name/$project_name
+else
+    echo "Error: Project directory '$dir_name/$project_name' already exists!"
+    exit 1
+endif
+# Copy pdk_setup.sh to the project directory
+echo "[info] Copying pdk_setup.sh to '$dir_name/$project_name'"
+if (! -e pdk_setup.sh) then
+    echo "Error: pdk_setup.sh does not exist in the current directory!"
+    exit 1
+endif
+if (! -f pdk_setup.sh) then
+    echo "Error: pdk_setup.sh is not a file!"
+    exit 1
+endif
+if (! -w $dir_name) then
+    echo "Error: No write permission for directory '$dir_name'!"
+    exit 1
+endif
+if (! -w $dir_name/$project_name) then
+    echo "Error: No write permission for project directory '$dir_name/$project_name'!"
+    exit 1
+endif
+if (! -r pdk_setup.sh) then
+    echo "Error: No read permission for pdk_setup.sh!"
+    exit 1
+endif
+if (! -x pdk_setup.sh) then
+    echo "Warning: pdk_setup.sh is not executable, setting it to executable"
+    chmod +x pdk_setup.sh
+endif
+if (! -e ../pdk) then
+    echo "Error: PDK directory '../pdk' does not exist!"
+    exit 1
+endif
+if (! -d ../pdk) then
+    echo "Error: '../pdk' is not a directory!"
+    exit 1
+endif
+if (! -r ../pdk) then
+    echo "Error: No read permission for PDK directory '../pdk'!"
+    exit 1
+endif
+
 cp pdk_setup.sh $dir_name/$project_name
 set pdkrootdir=`realpath ../pdk`
 sed -i "s#__PDKROOTDIR__#${pdkrootdir}#g" $dir_name/$project_name/pdk_setup.sh
 
+cp ../pvs_files/pvtech.lib $dir_name/$project_name
 
 exit 0
 

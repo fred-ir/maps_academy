@@ -13,7 +13,7 @@ endif
 
 # Find out in which institute the script is being called
 if ($HOST =~ sbgue*.in2p3.fr) then
-  echo Found IPHC cluster: $HOST
+  echo "[info] Found IPHC cluster: $HOST"
   set CLUSTER="iphc"
   set TOOLS_EUROP_VERSION="2024-25"
 endif
@@ -21,12 +21,6 @@ endif
 source ${CLUSTER}.modules.europractice.${TOOLS_EUROP_VERSION}.sh
 
 # Remove automatic setting environnement loading
-if ( ! -e .cdsinit ) then
-    touch .cdsinit
-endif
-if ( ! -e .cdsenv ) then
-    touch .cdsenv
-endif
 setenv CDS_LOAD_ENV CWD
 
-echo "Tools environnement set"
+echo "[info] Tools environnement set"

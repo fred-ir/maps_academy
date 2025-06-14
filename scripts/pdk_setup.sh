@@ -31,7 +31,28 @@ endif
 # Test if cds.lib file exist
 # If not create it and add PDK default cds.lib
 if ( ! -e cds.lib ) then
+    if (! -r ${PDKROOT}/cds.lib) then
+        echo "Error: No read permission for PDK cds.lib file '${PDKROOT}/cds.lib'!"
+        exit 1
+    endif
+    if (! -r ${PDKROOT}) then
+        echo "Error: No read permission for PDK sky130 directory '${PDKROOT}'!"
+        exit 1
+    endif
     echo "SOFTINCLUDE $PDKROOT/cds.lib" >> cds.lib
+
+    if (! -r ${IPROOT}) then
+        echo "Error: No read permission for IP sky130_scl_9T directory '${IPROOT}'!"
+        exit 1
+    endif
+    if (! -r ${IPROOT}/oa) then
+        echo "Error: No read permission for IP sky130_scl_9T ./oa directory '${IPROOT}/oa'!"
+        exit 1
+    endif
+    if (! -r ${IPROOT}/oa/sky130_scl_9T) then
+        echo "Error: No read permission for IP sky130_scl_9T ./oa/sky130_scl_9T directory '${IPROOT}/oa/sky130_scl_9T'!"
+        exit 1
+    endif
     echo "DEFINE sky130_scl_9T $IPROOT/oa/sky130_scl_9T" >> cds.lib
 endif
 
@@ -39,6 +60,20 @@ endif
 # If not copy it from PDK
 if ( ! -e display.drf ) then
     cp $PDKROOT/display.drf .
+    
+    if (! -r ${PDKROOT}/display.drf) then
+        echo "Error: No read permission for PDK display.drf file '${PDKROOT}/display.drf'!"
+        exit 1
+    endif
 endif
 
-echo "PDK environnement set"
+# Remove automatic setting environnement loading
+if ( ! -e .cdsinit ) then
+    touch .cdsinit
+endif
+if ( ! -e .cdsenv ) then
+    touch .cdsenv
+endif
+
+
+echo "[info] PDK environnement set"
