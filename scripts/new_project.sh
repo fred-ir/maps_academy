@@ -124,11 +124,49 @@ if (! -r ../pdk) then
     exit 1
 endif
 
+# Copy pdk_setup.sh to the project directory
 cp pdk_setup.sh $dir_name/$project_name
 set pdkrootdir=`realpath ../pdk`
 sed -i "s#__PDKROOTDIR__#${pdkrootdir}#g" $dir_name/$project_name/pdk_setup.sh
 
-cp ../pvs_files/pvtech.lib $dir_name/$project_name
+# Copy pvtech.lib to the project directory
+if (! -e ../pdk/pvs_files/pvtech.lib) then
+    echo "Error: pvtech.lib does not exist in '../pdk/pvs_files'!"
+    exit 1
+endif
+if (! -r ../pdk/pvs_files/pvtech.lib) then
+    echo "Error: No read permission for '../pdk/pvs_files/pvtech.lib'!"
+    exit 1
+endif
+cp ../pdk/pvs_files/pvtech.lib $dir_name/$project_name
+
+
+# Create .gitignore file
+set gitignore_file = $dir_name/$project_name/.gitignore
+if (! -e $gitignore_file) then
+    echo "[info] Creating .gitignore file in '$dir_name/$project_name'"
+    touch $gitignore_file
+else
+    echo "[info] .gitignore file already exists in '$dir_name/$project_name'"
+endif
+echo "[info] Adding common entries to .gitignore"
+echo "# Common entries for PDK projects" > $gitignore_file
+echo ".gitignore" >> $gitignore_file
+echo "pdk_setup.sh" >> $gitignore_file
+echo "pvtech.lib" >> $gitignore_file
+echo ".cadence" >> $gitignore_file
+echo "jobs" >> $gitignore_file
+echo "pvs_drc" >> $gitignore_file
+echo "pvs_lvs" >> $gitignore_file
+echo ".preRcx.Last.State" >> $gitignore_file
+echo ".qrc.Last.state" >> $gitignore_file
+echo ".QRC.run" >> $gitignore_file
+echo "pvsUI.log" >> $gitignore_file
+echo "pvsUI_pvsdrcrv.log" >> $gitignore_file
+echo "[info] Project '$project_name' created successfully in '$dir_name/$project_name'"
+echo "[info] You can now run 'source $dir_name/$project_name/pdk_setup.sh' to set up the project environment"
+echo "[info] Remember to check the pdk_setup.sh script for any additional setup required"
+echo "[info] Project setup complete"
 
 exit 0
 
