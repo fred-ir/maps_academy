@@ -126,7 +126,7 @@ endif
 
 # Copy pdk_setup.sh to the project directory
 cp pdk_setup.sh $dir_name/$project_name
-set pdkrootdir=`realpath ../pdk`
+set pdkrootdir=`realpath --relative-to=$dir_name/$project_name ../pdk`
 sed -i "s#__PDKROOTDIR__#${pdkrootdir}#g" $dir_name/$project_name/pdk_setup.sh
 
 # Copy pvtech.lib to the project directory
