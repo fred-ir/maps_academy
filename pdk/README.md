@@ -1,16 +1,24 @@
-# SKY130 pdk installation
+# SKY130 PDK installation
 
 ## Requirements
 
 - `tcsh` shell
 
 ## Installation
-Just run `install.sh` script
+To install the PDK, just run `install.sh` script
 
 ```
 ./install.sh
 ```
 
+## Clean installation
+To clean the installation and remove the PDK, just run `clean.sh` script
+
+```
+./clean.sh
+```
+
+
 ## Release
-- PDK : 0.0.4 (13 MAY 2024)
-- SCL_9T : 0.0.5 (not for production) 
+- PDK : 0.0.7 (15 JUNE 2025)
+- SCL_9T : 0.0.7 (not for production) 
