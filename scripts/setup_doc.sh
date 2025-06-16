@@ -1,9 +1,15 @@
 #!/bin/tcsh
 
+# Check if file is sourced
+set sourced = ($_)
+if ("$sourced" == "") then
+   echo "Script should be sourced."
+   exit 1
+endif
 
 # Set the name of the virtual environment from first argument
-setenv VENV_NAME ../maps_academy_doc
-setenv PYTHON_EXEC python3
+set VENV_NAME="../maps_academy_doc"
+set PYTHON_EXEC="python3"
 
 # Check if directory already exists
 if (-d $VENV_NAME) then
@@ -56,4 +62,6 @@ echo "Installing required packages..."
 xargs --max-args=1 --max-procs=8 pip install < .python_requirements
 
 echo "Virtual environment '$VENV_NAME' created and activated successfully!"
+rehash
+cd ..
 echo "To deactivate, use 'deactivate'"
