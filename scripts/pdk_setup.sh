@@ -15,8 +15,8 @@ endif
 umask 077
 
 # Define PDK root directory
-setenv PDKROOT __PDKROOTDIR__/sky130_release_0.0.4
-setenv IPROOT  __PDKROOTDIR__/sky130_scl_9T_0.0.5
+setenv PDKROOT `realpath __PDKROOTDIR__/sky130_release_0.0.7`
+setenv IPROOT  `realpath __PDKROOTDIR__/sky130_scl_9T_0.0.7/sky130_scl_9T`
 
 # Define PDK environment variables
 setenv PEGASUS_LVS $PDKROOT/Sky130_LVS
