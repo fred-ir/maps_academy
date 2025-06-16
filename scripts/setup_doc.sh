@@ -2,7 +2,7 @@
 
 
 # Set the name of the virtual environment from first argument
-setenv VENV_NAME maps_academy
+setenv VENV_NAME ../maps_academy_doc
 setenv PYTHON_EXEC python3
 
 # Check if directory already exists
