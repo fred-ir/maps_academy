@@ -36,7 +36,7 @@ To create a project call `my_project` in the `lab` directory, run the `new_proje
 
 ```
 cd scripts
-new_project.sh -n my_project -d ../lab
+./new_project.sh -n my_project -d ../lab
 cd ..
 ```
 
