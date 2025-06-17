@@ -61,7 +61,6 @@ Create the pyhton virtual environnement by sourcing the script `setup_doc.sh` in
 ```
 cd scripts
 source setup_doc.sh
-cd ..
 ```
 
 ## PDK information
