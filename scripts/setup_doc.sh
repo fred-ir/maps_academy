@@ -8,7 +8,7 @@ if ("$sourced" == "") then
 endif
 
 # Set the name of the virtual environment from first argument
-set VENV_NAME="../maps_academy_doc"
+set VENV_NAME="../venv"
 set PYTHON_EXEC="python3"
 
 # Check if directory already exists
