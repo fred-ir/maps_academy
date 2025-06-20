@@ -63,6 +63,9 @@ cd scripts
 source setup_doc.sh
 ```
 
+### Launch documentation
+
+
 ## PDK information
 
 ### Disclamer
