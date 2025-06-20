@@ -1,0 +1,24 @@
+site_name: MAPS Academy design hands-on training
+
+nav:
+  - Introduction: index.md
+  - SkyWater technology:
+      - Overview: pdk/sky130.md
+      - Process:  pdk/process.md
+  - Tests: slides.md
+
+theme:
+  name: material
+  palette:
+    primary: 'indigo'
+    accent: 'indigo'
+  features:
+    - navigation.tabs
+    - navigation.top
+    - navigation.sections
+    - navigation.expand
+    - navigation.tracking
+    - navigation.instant
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
