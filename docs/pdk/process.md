@@ -2,7 +2,7 @@
 
 ## Stack diagram
 
-![Process Stack Diagram](https://skywater-pdk.readthedocs.io/en/main/_images/metal_stack.svg)
+![Process Stack Diagram](../images/metal_stack.svg)
 
 ## Mask table
 
