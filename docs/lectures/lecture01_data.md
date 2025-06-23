@@ -12,6 +12,8 @@ Test premier slide
 - Utiliser Reveal.js
 - Profiter de Markdown
 
+Note: Test de notes
+
 ---
 
 ## Code
