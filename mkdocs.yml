@@ -5,10 +5,16 @@ nav:
   - SkyWater technology:
       - Overview: pdk/sky130.md
       - Process:  pdk/process.md
-  - Tests: slides.md
+  - Labs:
+      - Setup: labs/lab01.md
+      - Ideal Operational Amplifier: labs/lab02.md
+      - Ideal Charge Sensitive Amplifier: labs/lab03.md
+  - Lectures:
+    - Lecture 01: lectures/lecture01.md
 
 theme:
   name: material
+  logo: images/logo-mapsacademy.png
   palette:
     primary: 'indigo'
     accent: 'indigo'
@@ -22,3 +28,18 @@ theme:
     - navigation.indexes
     - search.suggest
     - search.highlight
+    - content.code.copy
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - pymdownx.keys
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
