@@ -32,4 +32,4 @@ if ($status != 0) then
 endif
 
 # Open default web browser to http://127.0.0.1:8000
-open http://127.0.0.1:8000
+xdg-open http://127.0.0.1:8000

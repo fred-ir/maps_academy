@@ -10,6 +10,13 @@ endif
 set VENV_NAME="../venv"
 set PYTHON_EXEC="python3"
 
+# Find out in which institute the script is being called
+if ($HOST =~ sbgue*.in2p3.fr) then
+  echo "[info] Found IPHC cluster: $HOST"
+  set PYTHON_EXEC="python3.12"
+endif
+
+
 # Check if directory already exists
 if (-d $VENV_NAME) then
     echo "Error: Directory '$VENV_NAME' already exists!"
