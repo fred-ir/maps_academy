@@ -5,7 +5,40 @@
 This repository is made for [MAPS Academy](https://wiki.kek.jp/display/mapschool/MAPS+Academy) Hands-on C (Cadence). The goal of this hands-on is to design a pixel based on CSA amplifer in [SkyWater SKY130](https://skywater-pdk.readthedocs.io/en/main/index.html) technology.
 SkyWater 130 have not been tested for MIP detection. This PDK is used since it could be freely redistributed.
 
-## Quick start-up
+## Labs documentation
+
+Documentation is based on `mkdocs`.
+
+### Installation
+
+Create the pyhton virtual environnement by sourcing the script `setup_doc.sh` in the scripts directory, in a separate terminal.
+
+```sh
+cd scripts
+source setup_doc.sh
+```
+
+### Launch documentation
+
+To launch the documentation run the scripts `launch_doc.sh` in the scripts directory in the previuos terminal
+
+```sh
+./launch_doc.sh
+```
+
+It's open a webrowser at the page [http://127.0.0.1:8000](http://127.0.0.1:8000)
+
+### Kill the documentation
+
+To shutdown the documentation server run the scripts `kill_doc.sh`.
+
+```sh
+./kill_doc.sh
+```
+
+## Standalone start-up
+
+If you want to use this repository without following the labs, you can use this quick start-up guide.
 
 ### PDK installation
 
@@ -49,37 +82,6 @@ To finalize the setup and launch virtuoso in the project call `my_project` in th
 cd lab/my_project
 source pdk_setup.sh
 virtuoso &
-```
-
-## Documentation
-
-Documentation is based on `mkdocs`.
-
-### Installation
-
-Create the pyhton virtual environnement by sourcing the script `setup_doc.sh` in the scripts directory, in a separate terminal.
-
-```sh
-cd scripts
-source setup_doc.sh
-```
-
-### Launch documentation
-
-To launch the documentation run the scripts `launch_doc.sh` in the scripts directory in the previuos terminal
-
-```sh
-./launch_doc.sh
-```
-
-It's open a webrowser at the page [http://127.0.0.1:8000](http://127.0.0.1:8000)
-
-### Kill the documentation
-
-To shutdown the documentation server run the scripts `kill_doc.sh`.
-
-```sh
-./kill_doc.sh
 ```
 
 ## PDK information
