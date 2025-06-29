@@ -1,10 +1,9 @@
 #!/bin/tcsh
 
 # Check if file is sourced
-set sourced = ($_)
-if ("$sourced" == "") then
-   echo "Script should be sourced."
-   exit 1
+if ("$0" != "tcsh") then
+    echo "Error: This script must be sourced (use: source $0)"
+    exit 1
 endif
 
 # Set the name of the virtual environment from first argument
