@@ -336,6 +336,8 @@ A pop-up window `Choosing Analyses` will appear:
 
 Go back to the `Virtuoso ADE Explorer` window by clicking on the `maestro` tab. We will select what voltages we are going to observe in this simulation.
 
+![maestro tab](../images/lab02_22.png)
+
 From the menu choose:
 
 !!! menu "Outputs->To be plotted->Select on Design"
@@ -344,14 +346,14 @@ This will bring you to your schematic. Select input wire (going to the `Vin_p`) 
 
 Press ++esc++ and go back to the `maestro` tab.
 
-![Schematic ideal opAMP tb select nets](../images/lab02_22.png)
+![Schematic ideal opAMP tb select nets](../images/lab02_23.png)
 
 When back in the `Virtuoso ADE Explorer` by clicking on the `maestro`tab. Run the simulation:
 
 !!! menu "Simulation->Netlist and Run"
     Or click the button from the tab on the right side.
 
-    ![Run Simulation](../images/lab02_23.png)
+    ![Run Simulation](../images/lab02_24.png)
 
     If the tab is closed by accident you can open it back by 
     
