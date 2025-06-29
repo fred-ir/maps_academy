@@ -7,14 +7,19 @@ nav:
       - Process:  pdk/process.md
   - Labs:
       - Setup: labs/lab01.md
-      - Ideal Operational Amplifier: labs/lab02.md
-      - Ideal Charge Sensitive Amplifier: labs/lab03.md
+      - Ideal models:
+        - Ideal Operational Amplifier: labs/lab02.md
+        - Ideal Charge Sensitive Amplifier: labs/lab03.md
+        - Ideal CSA with feedback resistor: labs/lab04.md
+      - Transistor based:
+        - Transistor design of a simple CSA Amplifier: labs/lab05.md
+        - Full CSA simulation: labs/lab06.md
+        - Layout of the CSA Amplifier: labs/lab07.md
   - Lectures:
-    - Lecture 01: lectures/lecture01.md
+    - Semiconductor ecosystem: lectures/lecture01.md
 
 theme:
   name: material
-  logo: images/logo-mapsacademy.png
   palette:
     primary: 'indigo'
     accent: 'indigo'
@@ -33,11 +38,19 @@ theme:
 extra_css:
   - stylesheets/extra.css
 
+plugins:
+  - glightbox:
+      skip_classes:
+        - skip-lightbox
+
 markdown_extensions:
   - attr_list
   - admonition
   - pymdownx.keys
   - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
