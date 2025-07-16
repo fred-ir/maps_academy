@@ -12,11 +12,18 @@ if ("$sourced" == "") then
 endif
 
 # Find out in which institute the script is being called
-if ($HOST =~ sbgue*.in2p3.fr) then
-  echo "[info] Found IPHC cluster: $HOST"
-  set CLUSTER="iphc"
-  set TOOLS_EUROP_VERSION="2024-25"
-endif
+switch ("$HOST")
+  case sbgue*.in2p3.fr:
+    echo "[info] Found IPHC cluster: $HOST"
+    set CLUSTER="iphc"
+    set TOOLS_EUROP_VERSION="2024-25"
+    breaksw
+  case *.kek.jp:
+    echo "[info] Found KEK cluster: $HOST"
+    set CLUSTER="kek"
+    set TOOLS_EUROP_VERSION="2024-25"
+    breaksw
+endsw
 
 source ${CLUSTER}.modules.europractice.${TOOLS_EUROP_VERSION}.sh
 
