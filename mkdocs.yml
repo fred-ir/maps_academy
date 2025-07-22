@@ -17,6 +17,8 @@ nav:
         - Layout of the CSA Amplifier: labs/lab07.md
   - Lectures:
     - Semiconductor ecosystem: lectures/lecture01.md
+    - CMOS process fabrication: lectures/lecture02.md
+    - Microelectronics design concepts: lectures/lecture03.md
 
 theme:
   name: material

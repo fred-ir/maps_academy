@@ -233,3 +233,9 @@ In the `Paths/Files` tab select (tick) the `Parasitic Files (dspf)` and double c
 Confirm the file selected by pressing `Open and close the Simulation files Setup` by pressing `OK`.
 
 Run the simulation and wait for it to complete. You can observe slight differences from the previous simulation corresponding to the parasitic capacitors in the in the layout.
+
+## Explore your design in 3D
+
+Follow the link [https://gds-viewer.tinytapeout.com](https://gds-viewer.tinytapeout.com) and upload the GDS file.
+
+A GDS file was generated during the LVS step under the `pvs_lvs` with the name `step6_CSA_layout.gds`.
