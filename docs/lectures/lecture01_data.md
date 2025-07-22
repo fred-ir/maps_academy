@@ -63,3 +63,9 @@ in brief
 ## Nodes and Foundries
 
 ![Nodes](../images/lec01_10.jpg)
+
+---
+
+## Reference
+
+[https://semiwiki.com/eda/307494-the-semiconductor-ecosystem-explained/](https://semiwiki.com/eda/307494-the-semiconductor-ecosystem-explained/)

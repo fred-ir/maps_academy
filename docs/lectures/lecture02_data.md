@@ -98,6 +98,12 @@
     <image href="../images/cmos_process_fab.svg"/>
 </svg>
 
+--
+
+## Reference
+
+[https://en.wikipedia.org/wiki/Wafer_fabrication](https://en.wikipedia.org/wiki/Wafer_fabrication)
+
 ---
 
 ## SkyWater 130 nm Stack diagram
