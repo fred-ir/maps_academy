@@ -118,7 +118,7 @@ You should be left with the Add Instance dialog box similar to this one:
 
 ![Add Instance](../images/lab02_12.png)
 
-Put 1000000 (one million) for the `Voltage gain`, set also `Maximum Output Voltage` to 1.8 and `Minimum Output Voltage` to -1.8.
+Put 1000000 (one million) for the `Voltage gain`, set also `Maximum Output Voltage` to 1.8 and `Minimum Output Voltage` to 0.
 
 Press Enter to close the window. Now you’re back to your schematic. While hovering your mouse over the schematic you can see a yellow symbol of a `vcvs`. Move the mouse to the middle of the schematic and press the left mouse button to place the `vcvs`, then press ++escape++ key.
 
