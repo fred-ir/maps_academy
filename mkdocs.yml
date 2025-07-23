@@ -21,6 +21,7 @@ nav:
     - Semiconductor ecosystem: lectures/lecture01.md
     - CMOS process fabrication: lectures/lecture02.md
     - Microelectronics design concepts: lectures/lecture03.md
+  - Authors: authors.md
 
 theme:
   name: material
