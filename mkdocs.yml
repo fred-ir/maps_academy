@@ -6,7 +6,9 @@ nav:
       - Overview: pdk/sky130.md
       - Process:  pdk/process.md
   - Labs:
-      - Setup: labs/lab01.md
+      - Setup: 
+        - For a new installation: labs/lab01.md
+        - From a previous installation: labs/lab08.md
       - Ideal models:
         - Ideal Operational Amplifier: labs/lab02.md
         - Ideal Charge Sensitive Amplifier: labs/lab03.md
