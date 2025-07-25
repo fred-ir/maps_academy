@@ -1,0 +1,1752 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../lab08/">
+      
+      
+        <link rel="next" href="../lab03/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>Ideal Operational Amplifier - MAPS Academy design hands-on training</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ideal-operational-amplifier-opamp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="MAPS Academy design hands-on training" class="md-header__button md-logo" aria-label="MAPS Academy design hands-on training" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MAPS Academy design hands-on training
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ideal Operational Amplifier
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Introduction
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pdk/sky130/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  SkyWater technology
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../lab01/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Labs
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../lectures/lecture01/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Lectures
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../authors/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Authors
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="MAPS Academy design hands-on training" class="md-nav__button md-logo" aria-label="MAPS Academy design hands-on training" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    MAPS Academy design hands-on training
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    SkyWater technology
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            SkyWater technology
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pdk/sky130/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pdk/process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Process
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Labs
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Labs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Setup
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Setup
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    For a new installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    From a previous installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Ideal models
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Ideal models
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Ideal Operational Amplifier
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ideal Operational Amplifier
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#library-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Library creation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schematic-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schematic creation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schematic-drawing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schematic drawing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Schematic drawing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-pins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add pins
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add instance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-wire" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add wire
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#move-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Move objects
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#symbol-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Symbol creation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Symbol creation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automatic-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automatic creation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-the-symbol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update the symbol
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-bench-schematic-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test bench schematic creation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ideal Charge Sensitive Amplifier
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ideal CSA with feedback resistor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Transistor based
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Transistor based
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Transistor design of a simple CSA Amplifier
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Full CSA simulation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Layout of the CSA Amplifier
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Lectures
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Lectures
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/lecture01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Semiconductor ecosystem
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/lecture02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CMOS process fabrication
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/lecture03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Microelectronics design concepts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../authors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#library-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Library creation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schematic-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schematic creation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schematic-drawing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schematic drawing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Schematic drawing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-pins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add pins
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add instance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-wire" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add wire
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#move-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Move objects
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#symbol-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Symbol creation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Symbol creation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automatic-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automatic creation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-the-symbol" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update the symbol
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test-bench-schematic-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Test bench schematic creation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulation
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ideal-operational-amplifier-opamp">Ideal Operational Amplifier (OpAMP)</h1>
+<h2 id="library-creation">Library creation</h2>
+<p>Open the <code>Library Manager</code> from the <code>CIW</code> window:</p>
+<div class="admonition menu">
+<p class="admonition-title">Tools-&gt;Libray Manager...</p>
+</div>
+<p><a class="glightbox" href="../../images/lab02_1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Library Manager" src="../../images/lab02_1.png" /></a></p>
+<p>Create the library from the <code>Library Manager</code> window:</p>
+<div class="admonition menu">
+<p class="admonition-title">File-&gt;New-&gt;Library...</p>
+</div>
+<p><a class="glightbox" href="../../images/lab02_2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="File New library" src="../../images/lab02_2.png" /></a></p>
+<p>In the <code>New Library</code> window, in the <code>Name</code> field put <code>MAPS_academy_lab</code>. Check that you are in the <code>lab/lab01</code> directory. Then click <code>OK</code>.</p>
+<p><a class="glightbox" href="../../images/lab02_3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="New library" src="../../images/lab02_3.png" /></a></p>
+<p>A new window appears to select the technology library. Select <code>Reference existing technology libraries</code>.</p>
+<p><a class="glightbox" href="../../images/lab02_4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Reference techfile" src="../../images/lab02_4.png" /></a></p>
+<p>Then select the <code>sky130_fd_pr_main</code> an put it the <code>Reference Technology Libraries</code>column. Click <code>OK</code></p>
+<p><a class="glightbox" href="../../images/lab02_5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Reference techfile animation" src="../../images/lab02_5.png" /></a></p>
+<h2 id="schematic-creation">Schematic creation</h2>
+<p>From Library Manager, select the library: <code>MAPS_academy_lab</code>.</p>
+<p>Create the schematic view of <code>step1_idealOpAMP</code> cell.</p>
+<div class="admonition menu">
+<p class="admonition-title">File-&gt;New-&gt;Cell View...</p>
+</div>
+<p><a class="glightbox" href="../../images/lab02_6.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="New cellview animation" src="../../images/lab02_6.png" /></a></p>
+<div class="admonition info">
+<p class="admonition-title">Views</p>
+<p>The cells are composed of different views. For the current tutorial we will focus on the following views:</p>
+<table>
+<thead>
+<tr>
+<th>View name</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>schematic</code></td>
+<td>Schematic of the electrical circuit of the cell</td>
+</tr>
+<tr>
+<td><code>symbol</code></td>
+<td>Symbol used in schematic for hierarchical designs</td>
+</tr>
+<tr>
+<td><code>layout</code></td>
+<td>Physical representation of the cell</td>
+</tr>
+<tr>
+<td><code>maestro</code></td>
+<td>Setup of the simulations</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In the <code>New File</code> window fill the field <code>Cell</code> with <code>step1_idealOpAMP</code> and select <code>Type</code> as schematic (if not select by default). The field <code>View</code> is changing automatically with the selection of <code>Type</code>. Press <code>OK</code> to genearte the new schematic.</p>
+<div class="admonition warning">
+<p class="admonition-title">View Name</p>
+<p>It is possible to change the name of the view, but not recommanded since it breaks the flow.</p>
+</div>
+<p><a class="glightbox" href="../../images/lab02_7.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="New cellview" src="../../images/lab02_7.png" /></a></p>
+<p>An empty schematic window appears.</p>
+<p><a class="glightbox" href="../../images/lab02_8.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="New schematic" src="../../images/lab02_8.png" /></a></p>
+<div class="admonition info">
+<p class="admonition-title">Schematic and layout navigation</p>
+<p>To navigate in the schematic and layout views use the keyboard arrows to move the design left, right, up and down. Use the mouse scroll wheel to zoom-in and out.</p>
+</div>
+<h2 id="schematic-drawing">Schematic drawing</h2>
+<p>Your goal in this step is to reproduce the following schematic:</p>
+<p><a class="glightbox" href="../../images/lab02_9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Original schematic" src="../../images/lab02_9.png" /></a></p>
+<h3 id="add-pins">Add pins</h3>
+<p>First you need the pins of the amplifier. Two inputs <code>Vin_p</code>and <code>Vin_n</code>and one output <code>Out</code>.</p>
+<p>From the menu of the <code>Virtuoso Studio Schematic Editor</code> window.</p>
+<div class="admonition menu">
+<p class="admonition-title">Create-&gt;Pin</p>
+<p><span class="keys"><kbd class="key-p">P</kbd></span></p>
+</div>
+<p>This will open the <code>Create Pin</code> pop-up window.</p>
+<p><a class="glightbox" href="../../images/lab02_10.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Create Pin" src="../../images/lab02_10.png" /></a></p>
+<div class="admonition info">
+<p class="admonition-title">Pop-up window</p>
+<p>If the pop-up window didn't appear press the <span class="keys"><kbd class="key-f3">F3</kbd></span> key. The <span class="keys"><kbd class="key-f3">F3</kbd></span> key is used to show or hide the current action pop-up window in <code>Virtuoso Studio</code></p>
+</div>
+<p>Check that <code>Direction</code> is set to <code>input</code>. Add in the <code>Names</code>field <code>Vin_p Vin_n</code>with a <span class="keys"><kbd class="key-space">Space</kbd></span> between the two names. Go back to the <code>Virtuoso Studio Schematic Editor</code> window, while hovering your mouse over the schematic you can see a yellow symbol of the input pin <code>Vin_p</code>. Move the mouse to the middle of the schematic and press the <span class="keys"><kbd class="key-left-button">Left Button</kbd></span> to place the first pin which turn in red. Now, the yellow symbol switch to the second pin. Place the second pin as the first one.</p>
+<p>Operates the same way for the output pin, but remember to switch the <code>Direction</code>to <code>Output</code>.</p>
+<p>You should have a schematic similar than this one.</p>
+<p><a class="glightbox" href="../../images/lab02_11.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Schematic with pins only" src="../../images/lab02_11.png" /></a></p>
+<div class="admonition info">
+<p class="admonition-title">Quit active command</p>
+<p>To quit a active command in <code>Virtuoso Studio</code> press <span class="keys"><kbd class="key-escape">Esc</kbd></span> key.</p>
+</div>
+<h3 id="add-instance">Add instance</h3>
+<p>Now you will add the core of the ideal operational amplifier, a voltage controlled voltage source (vcvs).</p>
+<p>From the menu of the <code>Virtuoso Studio Schematic Editor</code> window.</p>
+<div class="admonition menu">
+<p class="admonition-title">Create-&gt;Instance</p>
+<p><span class="keys"><kbd class="key-i">I</kbd></span></p>
+</div>
+<p>This will open the <code>Add Instance</code> pop-up window.</p>
+<p>Press the Browse button. In the <code>Library Browser</code> window select:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Library</td>
+<td>analogLib</td>
+</tr>
+<tr>
+<td>Cell</td>
+<td>vcvs</td>
+</tr>
+<tr>
+<td>View</td>
+<td>symbol</td>
+</tr>
+</tbody>
+</table>
+<p>Close the <code>Library Browser</code> window.</p>
+<p>You should be left with the Add Instance dialog box similar to this one:</p>
+<p><a class="glightbox" href="../../images/lab02_12.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Add Instance" src="../../images/lab02_12.png" /></a></p>
+<p>Put 1000000 (one million) for the <code>Voltage gain</code>, set also <code>Maximum Output Voltage</code> to 1.8 and <code>Minimum Output Voltage</code> to 0.</p>
+<p>Press Enter to close the window. Now you’re back to your schematic. While hovering your mouse over the schematic you can see a yellow symbol of a <code>vcvs</code>. Move the mouse to the middle of the schematic and press the left mouse button to place the <code>vcvs</code>, then press <span class="keys"><kbd class="key-escape">Esc</kbd></span> key.</p>
+<p>We also need to add the ground symbol to the schematic. Follow the steps like before and choose:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Library</td>
+<td>analogLib</td>
+</tr>
+<tr>
+<td>Cell</td>
+<td>gnd</td>
+</tr>
+<tr>
+<td>View</td>
+<td>symbol</td>
+</tr>
+</tbody>
+</table>
+<p>Place the <code>gnd</code> symbol directly below the <code>vcvs</code>.</p>
+<h3 id="add-wire">Add wire</h3>
+<p>Now connect the input and output pins to the <code>vcvs</code> symbol.</p>
+<p>From the menu <code>Virtuoso Studio Schematic Editor</code> window.</p>
+<div class="admonition menu">
+<p class="admonition-title">Create-&gt;Wire (Narrow)</p>
+<p><span class="keys"><kbd class="key-w">W</kbd></span></p>
+</div>
+<p>Click on the two points you want to connect, then a blue wire will appear.</p>
+<details class="tip">
+<summary>Ensure good wire connection</summary>
+<p>When the mouse is closed to a connectable object a yellow diamond shape appears. The connection will be made when a small yellow square is in the center of the diamond shape.</p>
+<p><a class="glightbox" href="../../images/lab02_note_1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Wire connection" src="../../images/lab02_note_1.png" /></a></p>
+</details>
+<p>When done, <code>Check and Save</code> the design to see if there are no errors/warnings.</p>
+<div class="admonition menu">
+<p class="admonition-title">File-&gt;Check and Save</p>
+<p><span class="keys"><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-x">X</kbd></span></p>
+<p><a class="glightbox" href="../../images/lab02_note_2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Check and Save" src="../../images/lab02_note_2.png" /></a></p>
+</div>
+<details class="tip">
+<summary>Check and Save</summary>
+<p>The <code>Check and Save</code>command save the view but also check several rules (which could be modify to your needs) like: shorts, open, pin consistency across views, ...</p>
+<p>If there is errors or warnings, a pop-up window appears (errors have precedence over warnings). The information is also dispaly in the <code>CIW</code>. Markers are also added in the schematic view where the errors (white blinking markers) or warnings (yellow blinking markers) are.</p>
+<p>To list the errors or warnings:</p>
+<div class="admonition menu">
+<p class="admonition-title">Check-&gt;Find Marker...</p>
+<p><span class="keys"><kbd class="key-g">G</kbd></span></p>
+</div>
+<p>A pop-up window appears with the list of errors or warnings.</p>
+<p><a class="glightbox" href="../../images/lab02_note_3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Find Marker" src="../../images/lab02_note_3.png" /></a></p>
+</details>
+<h3 id="move-objects">Move objects</h3>
+<!-- md:version 0.1.0 -->
+<!-- md:extension [attr_list][Move objects] -->
+
+<details class="tip">
+<summary>Move objects</summary>
+<p>There is two mode to move objetcs (instance, pin, wire, ...) in the <code>Virtuoso Studio Schematic Editor</code>: the <code>move</code>command and the <code>stretch</code>command. The <code>move</code> command move the object without keeping the connections made. The <code>stretch</code>command allow to move an object while keeping the connection and update the wire correspondidly.</p>
+<p>For the <code>move</code> command:</p>
+<div class="admonition menu">
+<p class="admonition-title">Edit-&gt;Move</p>
+<p><span class="keys"><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-m">M</kbd></span></p>
+</div>
+<p>For the <code>stretch</code> command:</p>
+<div class="admonition menu">
+<p class="admonition-title">Edit-&gt;Stretch</p>
+<p><span class="keys"><kbd class="key-m">M</kbd></span></p>
+</div>
+</details>
+<h2 id="symbol-creation">Symbol creation</h2>
+<h3 id="automatic-creation">Automatic creation</h3>
+<p>In order to reuse the created block, we will need to make a symbol that can be used in other designs. To do this, from the menu of the <code>Virtuoso Studio Schematic Editor</code> choose:</p>
+<div class="admonition menu">
+<p class="admonition-title">Create-&gt;CellView-&gt;From CellView...</p>
+</div>
+<p>This will open a <code>Cellview From Cellview</code> pop-up window. Make sure that the <code>Library Name</code> and <code>Cell Name</code> correspond to your schematic and that <code>To View Name</code> is set to <code>symbol</code>. Press <code>OK</code>.</p>
+<p><a class="glightbox" href="../../images/lab02_13.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Cellview from Cellview" src="../../images/lab02_13.png" /></a></p>
+<p>A next window will pop-up called <code>Symbol Generation Options</code>. Here you make sure that the <code>Vin_n</code> and <code>Vin_p</code> inputs are specified in the <code>Left Pins</code> field and <code>Out</code> is in the <code>Right Pins</code> field as in the following image.</p>
+<p><a class="glightbox" href="../../images/lab02_14.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Symbol Generation Options" src="../../images/lab02_14.png" /></a></p>
+<p>To generate the symbol using the analog standard: click on the <code>Load/Save</code> tick box, then in the <code>Load/Save Symbol Template Configuration</code> select <code>analog</code>in the drop-down list and click on <code>Load</code>. Press <code>OK</code> to create the symbol.</p>
+<p><a class="glightbox" href="../../images/lab02_15.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Symbol Generation Options Animation" src="../../images/lab02_15.png" /></a></p>
+<p>A <code>Overwrite Base Cell CDF</code> pop-up window appears, then press <code>Yes</code></p>
+<p><a class="glightbox" href="../../images/lab02_16.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Overwrite Base Cell CDF" src="../../images/lab02_16.png" /></a></p>
+<h3 id="update-the-symbol">Update the symbol</h3>
+<p>An automatically generated rectangular symbol of our schematic appears.</p>
+<p><a class="glightbox" href="../../images/lab02_17.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Automatic symbol" src="../../images/lab02_17.png" /></a></p>
+<p>Since we are designing a Operational Amplifier, we can draw a correct symbol for it.</p>
+<p><span class="keys"><kbd class="key-left-button">Left Button</kbd></span> click on the green rectangle and suppress it.</p>
+<div class="admonition menu">
+<p class="admonition-title">Edit-&gt;Delete</p>
+<p><span class="keys"><kbd class="key-delete">Del</kbd></span></p>
+</div>
+<p>Now from the menu select:</p>
+<div class="admonition menu">
+<p class="admonition-title">Create-&gt;Shape-&gt;Line</p>
+</div>
+<p>Draw a triangle.</p>
+<p>Select the <code>Vin_p</code> and <code>Vin_n</code>pins by <span class="keys"><kbd class="key-left-button">Left Button</kbd></span> clicking and dragging operation.</p>
+<p>Adjust the red rectangle to surrond the symbol (keep-out box). You can use commands to <a href="#move-objects">Move objects</a>.</p>
+<p>You will obtain the following symbol:</p>
+<p><a class="glightbox" href="../../images/lab02_18.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Final Symbol" src="../../images/lab02_18.png" /></a></p>
+<p>When the drawing is done, press <code>Check and Save</code> button to save the changes. You can close the <code>Virtuoso Studio symbol</code> window now.</p>
+<h2 id="test-bench-schematic-creation">Test bench schematic creation</h2>
+<p>In order to check our design, we will create a higher-level schematic.</p>
+<p>Go to the <code>Library Manager</code>, select the library <code>MAPS_academy_lab</code>.</p>
+<p>Create a new cellview from the <code>Library Manager</code></p>
+<div class="admonition menu">
+<p class="admonition-title">File-&gt;New Cellview</p>
+</div>
+<p>In the <code>New File</code> window fill the field <code>Cell</code> with <code>tb_step1_idealOpAMP</code> and select <code>Type</code> as schematic (if not select by default). The field <code>View</code> is changing automatically with the selection of <code>Type</code>. Press <code>OK</code> to generate the new schematic.</p>
+<p>Add our ideal op amp symbol to the design in the <code>tb_step1_idealOpAMP</code> schematic.</p>
+<div class="admonition menu">
+<p class="admonition-title">Create-&gt;Instance</p>
+<p><span class="keys"><kbd class="key-i">I</kbd></span></p>
+</div>
+<p>Make sure to select the right instance:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Library</td>
+<td>MAPS_academy_lab</td>
+</tr>
+<tr>
+<td>Cell</td>
+<td>step1_idealOpAMP</td>
+</tr>
+<tr>
+<td>View</td>
+<td>symbol</td>
+</tr>
+</tbody>
+</table>
+<p>From the menu of the <code>Virtuoso Studio Schematic Editor</code> window.</p>
+<div class="admonition menu">
+<p class="admonition-title">Create-&gt;Pin</p>
+<p><span class="keys"><kbd class="key-p">P</kbd></span></p>
+</div>
+<p>This will open the <code>Create Pin</code> pop-up window. Check that <code>Direction</code> is set to <code>output</code>. Add in the <code>Names</code>field <code>Out</code>. Place the pin at the schematic (on the right side of the idealOpAMP).</p>
+<p>Let’s check if our idealOpAMP does its job.</p>
+<p>From <code>analogLib</code> library add a DC voltage source (Cell is <code>vdc</code>) and a <code>gnd</code> symbol to the schematic.</p>
+<p>Select the <code>vdc</code> source to copy it:</p>
+<div class="admonition menu">
+<p class="admonition-title">Edit-&gt;Copy</p>
+<p><span class="keys"><kbd class="key-c">C</kbd></span></p>
+</div>
+<p>Do the same for the <code>gnd</code> symbol. Then place and connect elements as in the following schematic:</p>
+<p><a class="glightbox" href="../../images/lab02_19.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Test bench schematic" src="../../images/lab02_19.png" /></a></p>
+<p>Now let’s change the value of the voltage connected to <code>Vin_n</code> pin. Select the <code>vdc</code> source connected to the <code>Vin_n</code> pin:</p>
+<div class="admonition menu">
+<p class="admonition-title">Edit-&gt;Properties-&gt;Objects</p>
+<p><span class="keys"><kbd class="key-q">Q</kbd></span></p>
+</div>
+<p>A following window should appear.</p>
+<p><a class="glightbox" href="../../images/lab02_20.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Edit vdc properties" src="../../images/lab02_20.png" /></a></p>
+<p>In the <code>DC voltage</code> field put a value higher than 0 and lower than 1.8 (for example 0.9), we will call this voltage a switching voltage. We don’t set the <code>vdc</code> source which is connected to the <code>Vin_p</code> pin as we will sweep it in the simulation.</p>
+<p>Last modification is naming of the net.</p>
+<div class="admonition menu">
+<p class="admonition-title">Create-&gt;Wire Name</p>
+<p><span class="keys"><kbd class="key-l">L</kbd></span></p>
+</div>
+<p>Put the name for the input node, for example <code>in</code>. Select the wire going to the <code>Vin_p</code> pin to rename it to <code>in</code>.</p>
+<p>Press <code>Check and Save</code>.</p>
+<h2 id="simulation">Simulation</h2>
+<p>Still in the <code>Virtuoso Studio Schematic Editor</code>, go to the menu:</p>
+<div class="admonition menu">
+<p class="admonition-title">Launch-&gt; ADE Explorer</p>
+</div>
+<p>A pop-up window should appear. Select <code>Create New View</code> radio button.</p>
+<p>The next pop-up window will be filled-in automatically, so we can just press <code>OK</code>. This will open <code>Virtuoso ADE Explorer</code>.</p>
+<p>It’s an environment where we will perform simulations.</p>
+<p><a class="glightbox" href="../../images/lab02_21.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="ADE Explorer" src="../../images/lab02_21.png" /></a></p>
+<p>In the setup pane on the left side, we will add our analysis, by clicking the gray-out field <code>Click to add analysis</code> under the <code>Analysis</code> entry.</p>
+<p>If you close the setup pane by accident go to:</p>
+<div class="admonition menu">
+<p class="admonition-title">Window-&gt;Assistants-&gt;Setup</p>
+</div>
+<p>A pop-up window <code>Choosing Analyses</code> will appear:</p>
+<ul>
+<li>Choose the <code>dc</code> and in the <code>Sweep Variable</code> section click <code>Component parameter</code>.</li>
+<li>
+<p>The pop-up will rearrange itself, you can click on the <code>Select Component</code> button and choose the DC source connected to the <code>Vin_p</code> pin.</p>
+<ul>
+<li>Another pop-up will appear with all the parameters we can select for this element.</li>
+<li>From this window we will choose first position which is: <code>dc</code> <code>vdc</code> <code>"DC voltage"</code>.</li>
+<li>Click <code>OK</code> and go back to the <code>Choosing Analyses</code> window.</li>
+</ul>
+</li>
+<li>
+<p>In the <code>Sweep Range</code> section put the <code>Start</code> to 0 and <code>Stop</code> to 1.8. This will sweep the voltage from 0V to 1.8V at the <code>Vin_p</code> input of our ideal opAMP.</p>
+</li>
+<li>Press <code>OK</code> (or <span class="keys"><kbd class="key-enter">Enter</kbd></span>) to close the <code>Choosing analyses</code> window.</li>
+</ul>
+<p>Go back to the <code>Virtuoso ADE Explorer</code> window by clicking on the <code>maestro</code> tab. We will select what voltages we are going to observe in this simulation.</p>
+<p><a class="glightbox" href="../../images/lab02_22.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="maestro tab" src="../../images/lab02_22.png" /></a></p>
+<p>From the menu choose:</p>
+<div class="admonition menu">
+<p class="admonition-title">Outputs-&gt;To be plotted-&gt;Select on Design</p>
+</div>
+<p>This will bring you to your schematic. Select input wire (going to the <code>Vin_p</code>) and output pin (or wire).</p>
+<p>Press <span class="keys"><kbd class="key-escape">Esc</kbd></span> and go back to the <code>maestro</code> tab.</p>
+<p><a class="glightbox" href="../../images/lab02_23.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Schematic ideal opAMP tb select nets" src="../../images/lab02_23.png" /></a></p>
+<p>When back in the <code>Virtuoso ADE Explorer</code> by clicking on the <code>maestro</code>tab. Run the simulation:</p>
+<div class="admonition menu">
+<p class="admonition-title">Simulation-&gt;Netlist and Run</p>
+<p>Or click the button from the tab on the right side.</p>
+<p><a class="glightbox" href="../../images/lab02_24.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Run Simulation" src="../../images/lab02_24.png" /></a></p>
+<p>If the tab is closed by accident you can open it back by </p>
+<div class="admonition menu">
+<p class="admonition-title">Window-&gt;Toolbars-&gt;Run</p>
+</div>
+</div>
+<p>The simulation will be started, once done a <code>VIVA Graph</code>pane will appear on the right side of the main <code>ADE Explorer</code> window with our results.</p>
+<p>You can be surprised that the value at which your comparator switches is not exactly equal to your switching voltage. This is because the simulator has chosen the step size automatically.</p>
+<p>Go back to the Setup pane on the left side of the <code>ADE Explorer</code> and double click on the <code>dc</code> <code>Analysis</code>. You can confirm that the Sweep Type is set to Automatic. Change it to Linear and set the Step Size to 0.1m (so 100 µV).</p>
+<p>Press <code>OK</code> and re-run the simulation.</p>
+<p>You can see now that your comparator will cross at the voltage around what you’ve selected with precision of 100 µV.</p>
+<p><strong>Excelent job! You have designed your (first?) comparator and it’s working.</strong></p>
+<p>Close all the schematic and <code>ADE Explorer</code> windows. You can save changes if you want to.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.sections", "navigation.expand", "navigation.tracking", "navigation.instant", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
