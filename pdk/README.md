@@ -20,5 +20,6 @@ To clean the installation and remove the PDK, just run `clean.sh` script
 
 
 ## Release
-- PDK : 0.0.7 (15 JUNE 2025)
-- SCL_9T : 0.0.7 (not for production) 
+- PDK : 0.1.0 (15 JUNE 2025)
+- SCL_9T : 0.1.2 (not for production)
+- MPW Die Collateral : 1.1
