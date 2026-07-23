@@ -23,6 +23,11 @@ switch ("$HOST")
     set CLUSTER="kek"
     set TOOLS_EUROP_VERSION="2024-25"
     breaksw
+  case *.slac:
+    echo "[info] Found SLAC cluster: $HOST"
+    set CLUSTER="slac"
+    set TOOLS_EUROP_VERSION="2024-25"
+    breaksw
 endsw
 
 source ${CLUSTER}.modules.europractice.${TOOLS_EUROP_VERSION}.sh
