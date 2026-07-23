@@ -15,8 +15,9 @@ endif
 umask 077
 
 # Define PDK root directory
-setenv PDKROOT `realpath __PDKROOTDIR__/sky130_release_0.0.7`
-setenv IPROOT  `realpath __PDKROOTDIR__/sky130_scl_9T_0.0.7/sky130_scl_9T`
+setenv PDKROOT `realpath __PDKROOTDIR__/sky130_release_0.1.0`
+setenv IPROOT  `realpath __PDKROOTDIR__/sky130_scl_9T_0.1.2/sky130_scl_9T`
+setenv COLROOT `realpath __PDKROOTDIR__/sky130_die_collateral_1.1/sky130_die_collateral`
 
 # Define PDK environment variables
 setenv PEGASUS_LVS $PDKROOT/Sky130_LVS
@@ -54,17 +55,12 @@ if ( ! -e cds.lib ) then
         exit 1
     endif
     echo "DEFINE sky130_scl_9T $IPROOT/oa/sky130_scl_9T" >> cds.lib
-endif
 
-# Test if display.drf file exist
-# If not copy it from PDK
-if ( ! -e display.drf ) then
-    cp $PDKROOT/display.drf .
-    
-    if (! -r ${PDKROOT}/display.drf) then
-        echo "Error: No read permission for PDK display.drf file '${PDKROOT}/display.drf'!"
+    if (! -r ${COLROOT}) then
+        echo "Error: No read permission for Collateral sky130_die_collateral directory '${COLROOT}'!"
         exit 1
     endif
+     echo "DEFINE sky130_die_collateral $COLROOT" >> cds.lib    
 endif
 
 # Remove automatic setting environnement loading

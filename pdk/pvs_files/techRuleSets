@@ -1,10 +1,14 @@
-pvsRuleSet( "default"
-    (DrcRules "Sky130_DRC/sky130_rev_0.0_2.6.drc.pvl")
+pvsRuleSet( "DRC"
+    (DrcRules "Sky130_DRC/sky130_rev_0.0_2.12.drc.pvl")
     (DrcGuiPreset "virtuoso6.drc_preset_golden")
     (DrcGuiConfig "Sky130_DRC/sky130.drc.cfg")
-    (LvsRules "Sky130_LVS/sky130.lvs.pvl")
+)
+
+pvsRuleSet( "LVS"
+    (LvsRules "Sky130_LVS/sky130.lvs.v0.0_1.1.pvl")
     (LvsGuiPreset "virtuoso6.lvs_preset_golden")
 )
+
 ruleSet( "typical"
 (RcxSetupDir "quantus/extraction/typical")
 )
