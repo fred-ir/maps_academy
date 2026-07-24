@@ -1,57 +1,59 @@
-# Full CSA simulation
+# Lab 06: Full CSA Simulation
 
-## Schematic creation
+---
+## Schematic Creation
 
-Now that we have the core of the CSA designed with real transistors, we should test how it behaves in the CSA configuration.
+Now that the CSA core is designed with real transistors, test its behavior in the CSA configuration.
 
-For this step we will reuse schematic of `step3_idealCSA_Rf`.
+For this step, reuse the schematic of `step3_idealCSA_Rf`.
 
-Go to the `library Manager` and find:
+In the **Library Manager**, locate:
 
 | Library            | Cell               | View      |
 |--------------------|--------------------|-----------|
 | MAPS_academy_lab   | step3_idealCSA_Rf  | schematic |
 
-!!! rmb "On the `schematic` view select `Copy`"
+!!! rmb "On the **schematic** view, select **Copy**"
 
-A `Copy View` window will appear. In the right side put:
+A **Copy View** window will appear. On the right side, enter:
 
 | Library            | Cell               | View      |
 |--------------------|--------------------|-----------|
 | MAPS_academy_lab   | step5_tb_CSA_Rf    | schematic |
 
-Click `OK` to close the window and copy the schematic.
+Click **OK** to close the window and copy the schematic.
 
-Go to the `step5_CSA_Rf` schematic and open it. Select the `idealOpAMP` that we used before and delete it with:
+Open the `step5_CSA_Rf` schematic. Select the `idealOpAMP` used previously and delete it:
 
 !!! menu "Edit->Delete"
     ++del++
 
-Delete also the `ground` symbol and corresponding connection:
+Also delete the `ground` symbol and its corresponding connection:
 
 !!! lmb "Click and drag the mouse"
-    to select and press ++del++
+    to select and press ++del++.
 
-Add the `CSA` you have designed in the previous step (`step4_CSA`). To complete the test bench, you’ll need to add also the `bias_block` instance and a `vdc` source that will generate the `vdda` voltage.
+Add the `CSA` designed in the previous step (`step4_CSA`). To complete the test bench, also add the `bias_block` instance and a `vdc` source to generate the `vdda` voltage.
 
-With all the elements in place, your schematic should be similar to the following on:
+With all elements in place, your schematic should resemble the following:
 
-![Test bench schematic full CSA simulation](../images/lab06_1.png)
+![Test Bench Schematic Full CSA Simulation](../images/lab06_1.png)
 
-## Run simulation
+---
+## Run Simulation
 
-Create the `ADE Explorer` test bench. When the `ADE Explorer` window open, let’s import the test bench settings from a previous run:
+Create the **ADE Explorer** test bench. When the **ADE Explorer** window opens, import the test bench settings from a previous run:
 
-!!!menu "Session->Import"
+!!! menu "Session->Import"
 
-In the `Select View` section choose:
+In the **Select View** section, choose:
 
 | Library            | Cell               | View     |
 |--------------------|--------------------|----------|
 | MAPS_academy_lab   | step3_idealCSA_Rf  | maestro  |
 
-Click `OK`.
+Click **OK**.
 
-This will import all the analyses, outputs and expressions that we set up before.
+This imports all the analyses, outputs, and expressions configured previously.
 
-Run the simulation and wait for it to complete.
+Run the simulation and wait for completion.

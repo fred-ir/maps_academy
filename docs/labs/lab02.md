@@ -1,154 +1,158 @@
-# Ideal Operational Amplifier (OpAMP)
+# Lab 02: Ideal Operational Amplifier (OpAMP)
 
-## Library creation
+---
+## Library Creation
 
-Open the `Library Manager` from the `CIW` window:
+Open the **Library Manager** from the **CIW** window:
 
-!!! menu "Tools->Libray Manager..."
+!!! menu "Tools->Library Manager..."
 
 ![Library Manager](../images/lab02_1.png)
 
-Create the library from the `Library Manager` window:
+Create the library from the **Library Manager** window:
 
 !!! menu "File->New->Library..."
 
-![File New library](../images/lab02_2.png)
+![File New Library](../images/lab02_2.png)
 
-In the `New Library` window, in the `Name` field put `MAPS_academy_lab`. Check that you are in the `lab/lab01` directory. Then click `OK`.
+In the **New Library** window, in the **Name** field, enter `MAPS_academy_lab`. Ensure you are in the `lab/lab01` directory. Then click **OK**.
 
-![New library](../images/lab02_3.png)
+![New Library](../images/lab02_3.png)
 
-A new window appears to select the technology library. Select `Reference existing technology libraries`.
+A new window appears to select the technology library. Select **Reference existing technology libraries**.
 
-![Reference techfile](../images/lab02_4.png)
+![Reference Techfile](../images/lab02_4.png)
 
-Then select the `sky130_fd_pr_main` an put it the `Reference Technology Libraries`column. Click `OK`
+Then, select the `sky130_fd_pr_main` **and** place it in the **Reference Technology Libraries** column. Click **OK**.
 
-![Reference techfile animation](../images/lab02_5.png)
+![Reference Techfile Animation](../images/lab02_5.png)
 
-## Schematic creation
+---
+## Schematic Creation
 
-From Library Manager, select the library: `MAPS_academy_lab`.
+From the **Library Manager**, select the library: `MAPS_academy_lab`.
 
-Create the schematic view of `step1_idealOpAMP` cell.
+Create the schematic view of the `step1_idealOpAMP` cell:
 
 !!! menu "File->New->Cell View..."
 
-![New cellview animation](../images/lab02_6.png)
+![New Cell View Animation](../images/lab02_6.png)
 
 !!! info "Views"
-    The cells are composed of different views. For the current tutorial we will focus on the following views:
+    The cells are composed of different views. For this tutorial, we will focus on the following views:
+   View Name   | Purpose                                             |
+ |-------------|-----------------------------------------------------|
+ | `schematic` | Schematic of the electrical circuit of the cell     |
+ | `symbol`    | Symbol used in schematic for hierarchical designs   |
+ | `layout`    | Physical representation of the cell                 |
+ | `maestro`   | Setup of the simulations                            |
 
-    | View name   | Purpose                                             |
-    |-------------|-----------------------------------------------------|
-    | `schematic` | Schematic of the electrical circuit of the cell     |
-    | `symbol`    | Symbol used in schematic for hierarchical designs   |
-    | `layout`    | Physical representation of the cell                 |
-    | `maestro`   | Setup of the simulations                            |
-
-In the `New File` window fill the field `Cell` with `step1_idealOpAMP` and select `Type` as schematic (if not select by default). The field `View` is changing automatically with the selection of `Type`. Press `OK` to genearte the new schematic.
+In the **New File** window, fill the **Cell** field with `step1_idealOpAMP` and select **Type** as `schematic` (if not selected by default). The **View** field updates automatically with the selection of **Type**. Press **OK** to generate the new schematic.
 
 !!! warning "View Name"
-    It is possible to change the name of the view, but not recommanded since it breaks the flow.
+    It is possible to change the name of the view, but it is **not recommended** as it may break the flow.
 
-![New cellview](../images/lab02_7.png)
+![New Cell View](../images/lab02_7.png)
 
 An empty schematic window appears.
 
-![New schematic](../images/lab02_8.png)
+![New Schematic](../images/lab02_8.png)
 
-!!! info "Schematic and layout navigation"
-    To navigate in the schematic and layout views use the keyboard arrows to move the design left, right, up and down. Use the mouse scroll wheel to zoom-in and out.
+!!! info "Schematic and Layout Navigation"
+    To navigate in the schematic and layout views, use the keyboard arrows to move the design left, right, up, and down. Use the mouse scroll wheel to zoom in and out.
 
-## Schematic drawing
+---
+## Schematic Drawing
 
 Your goal in this step is to reproduce the following schematic:
 
-![Original schematic](../images/lab02_9.png)
+![Original Schematic](../images/lab02_9.png)
 
-### Add pins
+### Add Pins
 
-First you need the pins of the amplifier. Two inputs `Vin_p`and `Vin_n`and one output `Out`.
+First, you need the pins for the amplifier: two inputs (`Vin_p` and `Vin_n`) and one output (`Out`).
 
-From the menu of the `Virtuoso Studio Schematic Editor` window.
+In the **Virtuoso Studio Schematic Editor** window, select:
 
 !!! menu "Create->Pin"
     ++p++
 
-This will open the `Create Pin` pop-up window.
+This will open the **Create Pin** pop-up window.
 
 ![Create Pin](../images/lab02_10.png)
 
-!!! info "Pop-up window"
-    If the pop-up window didn't appear press the ++f3++ key. The ++f3++ key is used to show or hide the current action pop-up window in `Virtuoso Studio`
+!!! info "Pop-up Window"
+    If the pop-up window does not appear, press the ++f3++ key. The ++f3++ key is used to show or hide the current action pop-up window in **Virtuoso Studio**.
 
-Check that `Direction` is set to `input`. Add in the `Names`field `Vin_p Vin_n`with a ++space++ between the two names. Go back to the `Virtuoso Studio Schematic Editor` window, while hovering your mouse over the schematic you can see a yellow symbol of the input pin `Vin_p`. Move the mouse to the middle of the schematic and press the ++left-button++ to place the first pin which turn in red. Now, the yellow symbol switch to the second pin. Place the second pin as the first one.
+Ensure that **Direction** is set to `input`. In the **Names** field, enter `Vin_p Vin_n` with a ++space++ between the two names. Return to the **Virtuoso Studio Schematic Editor** window. While hovering over the schematic, you will see a yellow symbol of the input pin `Vin_p`. Move the mouse to the middle of the schematic and press the ++left-button++ to place the first pin, which turns red. Now, the yellow symbol switches to the second pin. Place the second pin as you did for the first one.
 
-Operates the same way for the output pin, but remember to switch the `Direction`to `Output`.
+Repeat the same process for the output pin, but set **Direction** to `Output`.
 
-You should have a schematic similar than this one.
+You should end up with a schematic similar to the following:
 
-![Schematic with pins only](../images/lab02_11.png)
+![Schematic with Pins Only](../images/lab02_11.png)
 
-!!! info "Quit active command"
-    To quit a active command in `Virtuoso Studio` press ++escape++ key.
+!!! info "Quit Active Command"
+    To quit an active command in **Virtuoso Studio**, press the ++escape++ key.
 
-### Add instance
+---
+### Add Instance
 
-Now you will add the core of the ideal operational amplifier, a voltage controlled voltage source (vcvs).
+Now, add the core of the ideal operational amplifier: a voltage-controlled voltage source (`vcvs`).
 
-From the menu of the `Virtuoso Studio Schematic Editor` window.
+In the **Virtuoso Studio Schematic Editor** window, select:
 
 !!! menu "Create->Instance"
     ++i++
 
-This will open the `Add Instance` pop-up window.
+This will open the **Add Instance** pop-up window.
 
-Press the Browse button. In the `Library Browser` window select:
+Click **Browse**. In the **Library Browser** window, select:
 
-| Field    | Value      |
-|----------|------------|
-| Library  | analogLib  |
-| Cell     | vcvs       |
-| View     | symbol     |
+ | Field    | Value      |
+ |----------|------------|
+ | Library  | analogLib  |
+ | Cell     | vcvs       |
+ | View     | symbol     |
 
-Close the `Library Browser` window.
+Close the **Library Browser** window.
 
-You should be left with the Add Instance dialog box similar to this one:
+You should be left with the **Add Instance** dialog box, similar to the following:
 
 ![Add Instance](../images/lab02_12.png)
 
-Put 1000000 (one million) for the `Voltage gain`, set also `Maximum Output Voltage` to 1.8 and `Minimum Output Voltage` to 0.
+Set **Voltage Gain** to `1000000` (one million), **Maximum Output Voltage** to `1.8`, and **Minimum Output Voltage** to `0`.
 
-Press Enter to close the window. Now you’re back to your schematic. While hovering your mouse over the schematic you can see a yellow symbol of a `vcvs`. Move the mouse to the middle of the schematic and press the left mouse button to place the `vcvs`, then press ++escape++ key.
+Press **Enter** to close the window. You are now back in your schematic. While hovering over the schematic, you will see a yellow symbol of a `vcvs`. Move the mouse to the middle of the schematic and press the ++left-button++ to place the `vcvs`. Then, press the ++escape++ key.
 
-We also need to add the ground symbol to the schematic. Follow the steps like before and choose:
+You also need to add the ground symbol to the schematic. Follow the same steps as before and select:
 
-| Field    | Value      |
-|----------|------------|
-| Library  | analogLib  |
-| Cell     | gnd        |
-| View     | symbol     |
+ | Field    | Value      |
+ |----------|------------|
+ | Library  | analogLib  |
+ | Cell     | gnd        |
+ | View     | symbol     |
 
 Place the `gnd` symbol directly below the `vcvs`.
 
-### Add wire
+---
+### Add Wires
 
-Now connect the input and output pins to the `vcvs` symbol.
+Now, connect the input and output pins to the `vcvs` symbol.
 
-From the menu `Virtuoso Studio Schematic Editor` window.
+In the **Virtuoso Studio Schematic Editor** window, select:
 
 !!! menu "Create->Wire (Narrow)"
     ++w++
 
-Click on the two points you want to connect, then a blue wire will appear.
+Click on the two points you want to connect; a blue wire will appear.
 
-??? tip "Ensure good wire connection"
-    When the mouse is closed to a connectable object a yellow diamond shape appears. The connection will be made when a small yellow square is in the center of the diamond shape.
+??? tip "Ensure Good Wire Connection"
+    When the mouse is close to a connectable object, a yellow diamond shape appears. The connection is established when a small yellow square appears in the center of the diamond shape.
 
-    ![Wire connection](../images/lab02_note_1.png)
+    ![Wire Connection](../images/lab02_note_1.png)
 
-When done, `Check and Save` the design to see if there are no errors/warnings.
+When finished, use **Check and Save** to verify there are no errors or warnings.
 
 !!! menu "File->Check and Save"
     ++shift+x++
@@ -156,9 +160,9 @@ When done, `Check and Save` the design to see if there are no errors/warnings.
     ![Check and Save](../images/lab02_note_2.png)
 
 ??? tip "Check and Save"
-    The `Check and Save`command save the view but also check several rules (which could be modify to your needs) like: shorts, open, pin consistency across views, ...
+    The **Check and Save** command saves the view and also checks several rules (which can be modified to suit your needs), such as shorts, open circuits, and pin consistency across views.
 
-    If there is errors or warnings, a pop-up window appears (errors have precedence over warnings). The information is also dispaly in the `CIW`. Markers are also added in the schematic view where the errors (white blinking markers) or warnings (yellow blinking markers) are.
+    If there are errors or warnings, a pop-up window appears (errors take precedence over warnings). The information is also displayed in the **CIW**. Markers are also added in the schematic view where errors (white blinking markers) or warnings (yellow blinking markers) occur.
 
     To list the errors or warnings:
 
@@ -169,206 +173,203 @@ When done, `Check and Save` the design to see if there are no errors/warnings.
 
     ![Find Marker](../images/lab02_note_3.png)
 
-### Move objects
-<!-- md:version 0.1.0 -->
-<!-- md:extension [attr_list][Move objects] -->
+---
+### Move Objects
 
-??? tip "Move objects"
+??? tip "Move Objects"
+    There are two modes to move objects (instance, pin, wire, etc.) in the **Virtuoso Studio Schematic Editor**: the **move** command and the **stretch** command. The **move** command moves the object without preserving its connections. The **stretch** command allows you to move an object while preserving its connections and updating the corresponding wire.
 
-    There is two mode to move objetcs (instance, pin, wire, ...) in the `Virtuoso Studio Schematic Editor`: the `move`command and the `stretch`command. The `move` command move the object without keeping the connections made. The `stretch`command allow to move an object while keeping the connection and update the wire correspondidly.
-
-    For the `move` command:
+    For the **move** command:
     !!! menu "Edit->Move"
         ++shift+m++
 
-    For the `stretch` command:
+    For the **stretch** command:
     !!! menu "Edit->Stretch"
         ++m++
 
-## Symbol creation
+---
+## Symbol Creation
 
-### Automatic creation
+### Automatic Creation
 
-In order to reuse the created block, we will need to make a symbol that can be used in other designs. To do this, from the menu of the `Virtuoso Studio Schematic Editor` choose:
+In order to reuse the created block, we will need to make a symbol that can be used in other designs. In the **Virtuoso Studio Schematic Editor**, select:
 
 !!! menu "Create->CellView->From CellView..."
 
- This will open a `Cellview From Cellview` pop-up window. Make sure that the `Library Name` and `Cell Name` correspond to your schematic and that `To View Name` is set to `symbol`. Press `OK`.
+This will open a **Cellview From Cellview** pop-up window. Ensure that the **Library Name** and **Cell Name** correspond to your schematic and that **To View Name** is set to `symbol`. Press **OK**.
 
 ![Cellview from Cellview](../images/lab02_13.png)
 
-A next window will pop-up called `Symbol Generation Options`. Here you make sure that the `Vin_n` and `Vin_p` inputs are specified in the `Left Pins` field and `Out` is in the `Right Pins` field as in the following image.
+A **Symbol Generation Options** window will pop up. Ensure that the `Vin_n` and `Vin_p` inputs are specified in the **Left Pins** field and `Out` is in the **Right Pins** field, as shown in the following image:
 
 ![Symbol Generation Options](../images/lab02_14.png)
 
-To generate the symbol using the analog standard: click on the `Load/Save` tick box, then in the `Load/Save Symbol Template Configuration` select `analog`in the drop-down list and click on `Load`. Press `OK` to create the symbol.
+To generate the symbol using the analog standard: click on the **Load/Save** checkbox, then in the **Load/Save Symbol Template Configuration**, select `analog` from the drop-down list and click on **Load**. Press **OK** to create the symbol.
 
 ![Symbol Generation Options Animation](../images/lab02_15.png)
 
-A `Overwrite Base Cell CDF` pop-up window appears, then press `Yes`
+A **Overwrite Base Cell CDF** pop-up window appears. Press **Yes**.
 
 ![Overwrite Base Cell CDF](../images/lab02_16.png)
 
-### Update the symbol
+---
+### Update the Symbol
 
-An automatically generated rectangular symbol of our schematic appears.
+An automatically generated rectangular symbol of your schematic appears.
 
-![Automatic symbol](../images/lab02_17.png)
+![Automatic Symbol](../images/lab02_17.png)
 
-Since we are designing a Operational Amplifier, we can draw a correct symbol for it.
+Since we are designing an operational amplifier, we can draw a proper symbol for it.
 
-++left-button++ click on the green rectangle and suppress it.
+++left-button++ click on the green rectangle and delete it:
 
 !!! menu "Edit->Delete"
     ++del++
 
-Now from the menu select:
+Now, from the menu, select:
 
 !!! menu "Create->Shape->Line"
 
 Draw a triangle.
 
-Select the `Vin_p` and `Vin_n`pins by ++left-button++ clicking and dragging operation.
-
-Adjust the red rectangle to surrond the symbol (keep-out box). You can use commands to [Move objects](#move-objects).
+Select the `Vin_p` and `Vin_n` pins by ++left-button++ clicking and dragging. Adjust the red rectangle to surround the symbol (keep-out box). You can use the [Move Objects](#move-objects) commands.
 
 You will obtain the following symbol:
 
 ![Final Symbol](../images/lab02_18.png)
 
-When the drawing is done, press `Check and Save` button to save the changes. You can close the `Virtuoso Studio symbol` window now.
+When the drawing is complete, press **Check and Save** to save the changes. You can now close the **Virtuoso Studio Symbol** window.
 
-## Test bench schematic creation
+---
+## Testbench Schematic Creation
 
-In order to check our design, we will create a higher-level schematic.
+In order to test our design, we will create a higher-level schematic.
 
-Go to the `Library Manager`, select the library `MAPS_academy_lab`.
+In the **Library Manager**, select the library `MAPS_academy_lab`.
 
-Create a new cellview from the `Library Manager`
-!!! menu "File->New Cellview"
+Create a new cell view from the **Library Manager**:
 
-In the `New File` window fill the field `Cell` with `tb_step1_idealOpAMP` and select `Type` as schematic (if not select by default). The field `View` is changing automatically with the selection of `Type`. Press `OK` to generate the new schematic.
+!!! menu "File->New->Cell View"
 
-Add our ideal op amp symbol to the design in the `tb_step1_idealOpAMP` schematic.
+In the **New File** window, fill the **Cell** field with `tb_step1_idealOpAMP` and select **Type** as `schematic` (if not selected by default). The **View** field updates automatically. Press **OK** to generate the new schematic.
+
+Add the `step1_idealOpAMP` symbol to the design in the `tb_step1_idealOpAMP` schematic:
 
 !!! menu "Create->Instance"
     ++i++
 
-Make sure to select the right instance:
+Ensure you select the correct instance:
 
-| Field    | Value              |
-|----------|--------------------|
-| Library  | MAPS_academy_lab   |
-| Cell     | step1_idealOpAMP   |
-| View     | symbol             |
+ | Field    | Value              |
+ |----------|--------------------|
+ | Library  | MAPS_academy_lab   |
+ | Cell     | step1_idealOpAMP   |
+ | View     | symbol             |
 
-From the menu of the `Virtuoso Studio Schematic Editor` window.
+From the **Virtuoso Studio Schematic Editor** window, select:
 
 !!! menu "Create->Pin"
     ++p++
 
-This will open the `Create Pin` pop-up window. Check that `Direction` is set to `output`. Add in the `Names`field `Out`. Place the pin at the schematic (on the right side of the idealOpAMP).
+This will open the **Create Pin** pop-up window. Ensure that **Direction** is set to `output`. In the **Names** field, enter `Out`. Place the pin on the schematic (on the right side of the ideal OpAMP).
 
-Let’s check if our idealOpAMP does its job.
+---
+### Add Components to Testbench
 
-From `analogLib` library add a DC voltage source (Cell is `vdc`) and a `gnd` symbol to the schematic.
+From the `analogLib` library, add a DC voltage source (`vdc`) and a `gnd` symbol to the schematic.
 
 Select the `vdc` source to copy it:
 
 !!! menu "Edit->Copy"
     ++c++
 
-Do the same for the `gnd` symbol. Then place and connect elements as in the following schematic:
+Do the same for the `gnd` symbol. Then, place and connect the elements as shown in the following schematic:
 
-![Test bench schematic](../images/lab02_19.png)
+![Test Bench Schematic](../images/lab02_19.png)
 
-Now let’s change the value of the voltage connected to `Vin_n` pin. Select the `vdc` source connected to the `Vin_n` pin:
+Now, let’s change the value of the voltage connected to the `Vin_n` pin. Select the `vdc` source connected to the `Vin_n` pin:
 
 !!! menu "Edit->Properties->Objects"
     ++q++
 
-A following window should appear.
+A window should appear:
 
-![Edit vdc properties](../images/lab02_20.png)
+![Edit vdc Properties](../images/lab02_20.png)
 
-In the `DC voltage` field put a value higher than 0 and lower than 1.8 (for example 0.9), we will call this voltage a switching voltage. We don’t set the `vdc` source which is connected to the `Vin_p` pin as we will sweep it in the simulation.
+In the **DC Voltage** field, enter a value between `0` and `1.8` (for example, `0.9`). We will call this voltage the **switching voltage**. Do not set the `vdc` source connected to the `Vin_p` pin, as we will sweep it in the simulation.
 
-Last modification is naming of the net.
+---
+### Name the Net
 
 !!! menu "Create->Wire Name"
     ++l++
 
-Put the name for the input node, for example `in`. Select the wire going to the `Vin_p` pin to rename it to `in`.
+Enter a name for the input node (for example, `in`). Select the wire going to the `Vin_p` pin to rename it to `in`.
 
-Press `Check and Save`.
+Press **Check and Save**.
 
+---
 ## Simulation
 
-Still in the `Virtuoso Studio Schematic Editor`, go to the menu:
+In the **Virtuoso Studio Schematic Editor**, go to the menu:
 
-!!! menu "Launch-> ADE Explorer"
+!!! menu "Launch->ADE Explorer"
 
-A pop-up window should appear. Select `Create New View` radio button.
+A pop-up window should appear. Select the **Create New View** radio button.
 
-The next pop-up window will be filled-in automatically, so we can just press `OK`. This will open `Virtuoso ADE Explorer`.
-
-It’s an environment where we will perform simulations.
+The next pop-up window will be filled in automatically, so simply press **OK**. This will open **Virtuoso ADE Explorer**, an environment where we will perform simulations.
 
 ![ADE Explorer](../images/lab02_21.png)
 
-In the setup pane on the left side, we will add our analysis, by clicking the gray-out field `Click to add analysis` under the `Analysis` entry.
+In the **Setup** pane on the left side, add the analysis by clicking the grayed-out field **Click to add analysis** under the **Analysis** entry.
 
-If you close the setup pane by accident go to:
+If you close the **Setup** pane by accident, go to:
 
 !!! menu "Window->Assistants->Setup"
 
-A pop-up window `Choosing Analyses` will appear:
+A **Choosing Analyses** pop-up window will appear:
 
-- Choose the `dc` and in the `Sweep Variable` section click `Component parameter`.
-- The pop-up will rearrange itself, you can click on the `Select Component` button and choose the DC source connected to the `Vin_p` pin.
+- Choose the `dc` analysis, and in the **Sweep Variable** section, click **Component Parameter**.
+- The pop-up will rearrange itself. Click the **Select Component** button and choose the DC source connected to the `Vin_p` pin.
 
-    - Another pop-up will appear with all the parameters we can select for this element.
-    - From this window we will choose first position which is: `dc` `vdc` `"DC voltage"`.
-    - Click `OK` and go back to the `Choosing Analyses` window.
+    - Another pop-up will appear with all the parameters you can select for this element.
+    - From this window, select the first option: `dc` `vdc` `"DC voltage"`.
+    - Click **OK** and return to the **Choosing Analyses** window.
 
-- In the `Sweep Range` section put the `Start` to 0 and `Stop` to 1.8. This will sweep the voltage from 0V to 1.8V at the `Vin_p` input of our ideal opAMP.
-- Press `OK` (or ++enter++) to close the `Choosing analyses` window.
+- In the **Sweep Range** section, set **Start** to `0` and **Stop** to `1.8`. This will sweep the voltage from `0V` to `1.8V` at the `Vin_p` input of the ideal OpAMP.
+- Press **OK** (or ++enter++) to close the **Choosing Analyses** window.
 
-Go back to the `Virtuoso ADE Explorer` window by clicking on the `maestro` tab. We will select what voltages we are going to observe in this simulation.
+Go back to the **Virtuoso ADE Explorer** window by clicking on the **maestro** tab. Select the voltages to observe in the simulation:
 
-![maestro tab](../images/lab02_22.png)
+!!! menu "Outputs->To be Plotted->Select on Design"
 
-From the menu choose:
+This will bring you to your schematic. Select the input wire (going to `Vin_p`) and the output pin (or wire).
 
-!!! menu "Outputs->To be plotted->Select on Design"
+Press ++esc++ and return to the **maestro** tab.
 
-This will bring you to your schematic. Select input wire (going to the `Vin_p`) and output pin (or wire).
+![Schematic Ideal OpAMP Testbench Select Nets](../images/lab02_23.png)
 
-Press ++esc++ and go back to the `maestro` tab.
-
-![Schematic ideal opAMP tb select nets](../images/lab02_23.png)
-
-When back in the `Virtuoso ADE Explorer` by clicking on the `maestro`tab. Run the simulation:
+When back in the **Virtuoso ADE Explorer**, click on the **maestro** tab. Run the simulation:
 
 !!! menu "Simulation->Netlist and Run"
     Or click the button from the tab on the right side.
 
     ![Run Simulation](../images/lab02_24.png)
 
-    If the tab is closed by accident you can open it back by 
-    
+    If the tab is closed by accident, you can reopen it using:
+
     !!! menu "Window->Toolbars->Run"
 
-The simulation will be started, once done a `VIVA Graph`pane will appear on the right side of the main `ADE Explorer` window with our results.
+The simulation will start. Once completed, a **VIVA Graph** pane will appear on the right side of the main **ADE Explorer** window with the results.
 
-You can be surprised that the value at which your comparator switches is not exactly equal to your switching voltage. This is because the simulator has chosen the step size automatically.
+You may notice that the value at which your comparator switches is not exactly equal to your switching voltage. This is because the simulator has automatically chosen the step size.
 
-Go back to the Setup pane on the left side of the `ADE Explorer` and double click on the `dc` `Analysis`. You can confirm that the Sweep Type is set to Automatic. Change it to Linear and set the Step Size to 0.1m (so 100 µV).
+Go back to the **Setup** pane on the left side of **ADE Explorer** and double-click on the `dc` **Analysis**. Confirm that the **Sweep Type** is set to **Automatic**. Change it to **Linear** and set the **Step Size** to `0.1m` (i.e., 100 µV).
 
-Press `OK` and re-run the simulation.
+Press **OK** and re-run the simulation.
 
-You can see now that your comparator will cross at the voltage around what you’ve selected with precision of 100 µV.
+You can now see that your comparator will cross at the voltage around what you selected, with a precision of 100 µV.
 
-**Excelent job! You have designed your (first?) comparator and it’s working.**
+**Excellent job! You have designed your (first?) comparator, and it is working.**
 
-Close all the schematic and `ADE Explorer` windows. You can save changes if you want to.
+Close all the schematic and **ADE Explorer** windows. You can save changes if you wish.
