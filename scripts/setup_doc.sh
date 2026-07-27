@@ -1,7 +1,7 @@
 #!/bin/tcsh
 
 # Check if file is sourced
-if ("$0" != "tcsh") then
+if ("$0" !~ *csh) then
     echo "Error: This script must be sourced (use: source $0)"
     exit 1
 endif

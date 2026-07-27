@@ -17,10 +17,8 @@ nav:
         - Transistor design of a simple CSA Amplifier: labs/lab05.md
         - Full CSA simulation: labs/lab06.md
         - Layout of the CSA Amplifier: labs/lab07.md
-  - Lectures:
-    - Semiconductor ecosystem: lectures/lecture01.md
-    - CMOS process fabrication: lectures/lecture02.md
-    - Microelectronics design concepts: lectures/lecture03.md
+      - Toolbox:
+        - Shortcuts remainder: labs/shortcuts.md
   - Authors: authors.md
 
 theme:

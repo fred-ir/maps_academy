@@ -1,47 +1,49 @@
-# Restart labs after a loss of connection
+# Lab 08: Restart Labs After a Loss of Connection
 
-To relaunch the documentation and the setup after loosing the connection
+---
+## Relaunch Documentation
 
-## Relaunch the documentation
-
-Go to the main directory where `venv` directory is located, and start the virtual environement
+Navigate to the main directory where the `venv` directory is located, and start the virtual environment:
 
 ```sh
 source venv/bin/activate.csh
 ```
 
-Launch the docuemntation from the script directory.
+Launch the documentation from the **scripts** directory:
 
 ```sh
 cd scripts
 ./launch_doc.sh
 ```
 
-## Relaunch the tools setup
+---
+## Relaunch Tools Setup
 
-Setup the tools.
+Set up the tools:
 
 ```sh
 source tools_setup.sh
 ```
 
-## Relaunch the setup
+---
+## Relaunch PDK Setup
 
-To setup the PDK
+To set up the PDK:
 
 ```sh
 cd ../lab/lab01
 source pdk_setup.sh
 ```
 
-## Relaunch virtuoso
+---
+## Relaunch Virtuoso
 
-To relaunch virtuoso.
+To relaunch Virtuoso:
 
 ```sh
 virtuoso &
 ```
 
-If everything is going well you will see the `CIW` (Command Interpreter window)
+If everything is set up correctly, you will see the **CIW** (Command Interpreter Window):
 
 ![CIW](../images/lab01_1.png)
